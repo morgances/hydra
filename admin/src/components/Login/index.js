@@ -26,7 +26,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: props.defaultActiveKey,
+      type: props.defaultActiveKey || 'account',
       tabs: [],
       active: {},
     };
