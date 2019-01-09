@@ -17,7 +17,7 @@ const links = [
 
 const copyright = (
   <Fragment>
-    Copyright <Icon type="copyright" /> 2019 技术猫编程俱乐部
+    Copyright <Icon type="copyright" /> 2019 极智人（北京）科技有限公司
   </Fragment>
 );
 
