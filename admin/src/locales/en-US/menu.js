@@ -4,6 +4,8 @@ export default {
   'menu.dashboard.analysis': 'Analysis',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',
+  'menu.course': 'Course Management',
+  'menu.course.catalog': 'Course Monitor',
   'menu.form': 'Form',
   'menu.form.basicform': 'Basic Form',
   'menu.form.stepform': 'Step Form',

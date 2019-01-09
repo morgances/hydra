@@ -41,6 +41,19 @@ export default [
           },
         ],
       },
+      // course
+      {
+        path: '/course',
+        name: 'course',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/course/catalog',
+            name: 'catalog',
+            component: './Course/TableList',
+          },
+        ],
+      },
       // forms
       {
         path: '/form',
