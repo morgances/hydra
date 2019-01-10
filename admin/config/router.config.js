@@ -50,7 +50,7 @@ export default [
           {
             path: '/course/catalog',
             name: 'catalog',
-            component: './Course/TableList',
+            component: './Course/Monitor',
           },
         ],
       },
