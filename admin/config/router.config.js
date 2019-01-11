@@ -160,12 +160,6 @@ export default [
             name: 'basic',
             component: './Profile/BasicProfile',
           },
-          {
-            path: '/profile/advanced',
-            name: 'advanced',
-            authority: ['admin'],
-            component: './Profile/AdvancedProfile',
-          },
         ],
       },
       {
