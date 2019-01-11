@@ -204,18 +204,6 @@ export default [
                 path: '/account/settings/base',
                 component: './Account/Settings/BaseView',
               },
-              {
-                path: '/account/settings/security',
-                component: './Account/Settings/SecurityView',
-              },
-              {
-                path: '/account/settings/binding',
-                component: './Account/Settings/BindingView',
-              },
-              {
-                path: '/account/settings/notification',
-                component: './Account/Settings/NotificationView',
-              },
             ],
           },
         ],
