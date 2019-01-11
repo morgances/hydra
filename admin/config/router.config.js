@@ -150,19 +150,6 @@ export default [
         ],
       },
       {
-        path: '/profile',
-        name: 'profile',
-        icon: 'profile',
-        routes: [
-          // profile
-          {
-            path: '/profile/basic',
-            name: 'basic',
-            component: './Profile/BasicProfile',
-          },
-        ],
-      },
-      {
         name: 'result',
         icon: 'check-circle-o',
         path: '/result',
