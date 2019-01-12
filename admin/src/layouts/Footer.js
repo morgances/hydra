@@ -13,6 +13,18 @@ const FooterView = () => (
           href: 'https://www.smartestee.com/',
           blankTarget: true,
         },
+        {
+          key: 'Github',
+          title: 'Github',
+          href: 'https://github.com/fengyfei',
+          blankTarget: true,
+        },
+        {
+          key: 'DDR',
+          title: '杨鼎睿',
+          href: 'https://github.com/yhyddr',
+          blankTarget: true,
+        },
       ]}
       copyright={
         <Fragment>

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { formatMessage } from 'umi/locale';
 import Link from 'umi/link';
 import { Icon } from 'antd';
 import GlobalFooter from '@/components/GlobalFooter';
@@ -8,9 +7,22 @@ import logo from '../assets/logo.svg';
 
 const links = [
   {
-    key: 'help',
-    title: formatMessage({ id: 'layout.user.link.help' }),
-    href: 'https://bootcamp.smartestee.com/',
+    key: '官方网站',
+    title: '官方网站',
+    href: 'https://www.smartestee.com/',
+    blankTarget: true,
+  },
+  {
+    key: 'Github',
+    title: 'Github',
+    href: 'https://github.com/fengyfei',
+    blankTarget: true,
+  },
+  {
+    key: 'DDR',
+    title: '杨鼎睿',
+    href: 'https://github.com/yhyddr',
+    blankTarget: true,
   },
 ];
 
