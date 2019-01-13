@@ -52,6 +52,11 @@ export default [
             name: 'catalog',
             component: './Course/Monitor',
           },
+          {
+            path: '/course/upload',
+            name: 'upload',
+            component: './Course/UploadVideo',
+          },
         ],
       },
       // forms

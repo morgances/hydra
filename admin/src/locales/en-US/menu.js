@@ -6,6 +6,7 @@ export default {
   'menu.dashboard.workplace': 'Workplace',
   'menu.course': 'Course Management',
   'menu.course.catalog': 'Course Monitor',
+  'menu.course.upload': 'Upload Video',
   'menu.form': 'Form',
   'menu.form.basicform': 'Basic Form',
   'menu.form.stepform': 'Step Form',

@@ -6,6 +6,7 @@ export default {
   'menu.dashboard.workplace': '工作台',
   'menu.course': '课程管理',
   'menu.course.catalog': '课程监控',
+  'menu.course.upload': '上传视频',
   'menu.form': '表单页',
   'menu.form.basicform': '基础表单',
   'menu.form.stepform': '分步表单',
