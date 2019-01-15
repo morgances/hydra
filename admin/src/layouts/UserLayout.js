@@ -3,7 +3,7 @@ import Link from 'umi/link';
 import { Icon } from 'antd';
 import GlobalFooter from '@/components/GlobalFooter';
 import styles from './UserLayout.less';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.jpeg';
 
 const links = [
   {
@@ -54,7 +54,7 @@ class UserLayout extends React.PureComponent {
             <div className={styles.header}>
               <Link to="/">
                 <img alt="logo" className={styles.logo} src={logo} />
-                <span className={styles.title}>平山育才小学管理平台</span>
+                <span className={styles.title}>育才学校管理平台</span>
               </Link>
             </div>
             <div className={styles.desc}>少年强则中国强</div>
