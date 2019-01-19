@@ -1,0 +1,12 @@
+hash: 9ef651de1a355bae1fbfb4680da730d99fbc9766ac9631c24f132553ceb54787
+updated: 2019-01-19T15:08:42.491723+08:00
+imports:
+- name: github.com/appleboy/gin-jwt
+  version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
+- name: github.com/gin-gonic/gin
+  version: b869fe1415e4b9eb52f247441830d502aece2d4d
+- name: github.com/json-iterator/go
+  version: 1624edc4454b8682399def8740d46db5e4362ba4
+- name: github.com/qiniu/api.v7
+  version: bc6998c1186aafa0eadc6396d28fc7e77a594a2a
+testImports: []
