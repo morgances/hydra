@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang/glog"
 )
 
 func main() {
@@ -15,5 +16,8 @@ func main() {
 		Addr:    configuration.Address,
 		Handler: router,
 	}
-	s.ListenAndServe()
+
+	if err := s.ListenAndServe(); err != nil {
+		glog.Fatalf("server error %s", err)
+	}
 }

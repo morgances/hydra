@@ -1,5 +1,5 @@
-hash: b7d710e6b7980b6e90562f815e95a8c9a14102acb9f397963fb17ed0525e754f
-updated: 2019-01-21T22:05:45.246559+08:00
+hash: d9fa9edbe3d5568787f408f3be2a3618067fb3b7b3193a70824d766b25c1735b
+updated: 2019-01-22T16:22:51.407453+08:00
 imports:
 - name: github.com/appleboy/gin-jwt
   version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
@@ -13,6 +13,8 @@ imports:
   - binding
   - json
   - render
+- name: github.com/golang/glog
+  version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/golang/protobuf
   version: 347cf4a86c1cb8d262994d8ef5924d4576c5b331
   subpackages:
@@ -62,7 +64,7 @@ imports:
   subpackages:
   - codec
 - name: golang.org/x/sys
-  version: 770c60269bf0ef965e9e7ac8bedcb6bca2a1cefd
+  version: 054c452bb702e465e95ce8e7a3d9a6cf0cd1188d
   subpackages:
   - unix
 - name: golang.org/x/text
