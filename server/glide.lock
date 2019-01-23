@@ -1,5 +1,5 @@
 hash: 0270c0eb2ec0cec6c439dc5fb197c1bd0af371d6e5c1547e4e1b510e706e3139
-updated: 2019-01-23T14:55:50.723709+08:00
+updated: 2019-01-23T15:40:45.993454+08:00
 imports:
 - name: github.com/appleboy/gin-jwt
   version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
@@ -75,6 +75,8 @@ imports:
   - transform
   - unicode
   - unicode/norm
+- name: gopkg.in/dgrijalva/jwt-go.v3
+  version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: gopkg.in/go-playground/validator.v8
   version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
 - name: gopkg.in/yaml.v2
