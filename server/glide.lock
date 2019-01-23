@@ -1,10 +1,12 @@
-hash: d9fa9edbe3d5568787f408f3be2a3618067fb3b7b3193a70824d766b25c1735b
-updated: 2019-01-22T16:22:51.407453+08:00
+hash: 0270c0eb2ec0cec6c439dc5fb197c1bd0af371d6e5c1547e4e1b510e706e3139
+updated: 2019-01-23T14:55:50.723709+08:00
 imports:
 - name: github.com/appleboy/gin-jwt
   version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
 - name: github.com/fsnotify/fsnotify
   version: ccc981bf80385c528a65fbfdd49bf2d8da22aa23
+- name: github.com/gin-contrib/cors
+  version: cf4846e6a636a76237a28d9286f163c132e841bc
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
 - name: github.com/gin-gonic/gin

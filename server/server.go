@@ -5,12 +5,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
+
+	"github.com/morgances/hydra/server/middlewares"
+	"github.com/morgances/hydra/server/routes"
 )
 
 func main() {
 	router := gin.Default()
 
-	installRouter(router)
+	middlewares.Install(router)
+	routes.Install(router)
 
 	s := &http.Server{
 		Addr:    configuration.Address,
