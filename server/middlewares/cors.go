@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func installCoresMiddleware(router *gin.Engine) {
+func installCorsMiddleware(router *gin.Engine) {
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"http://*", "https://*"}
 

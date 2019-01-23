@@ -9,5 +9,5 @@ func Install(router *gin.Engine) {
 	router.Use(gin.Logger())
 	router.Use(gin.Recovery())
 
-	installCoresMiddleware(router)
+	installCorsMiddleware(router)
 }
