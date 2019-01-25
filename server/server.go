@@ -8,10 +8,13 @@ import (
 
 	"github.com/morgances/hydra/server/middlewares"
 	"github.com/morgances/hydra/server/routes"
+	"github.com/morgances/hydra/server/services"
 )
 
 func main() {
 	router := gin.Default()
+
+	services.Load(databaseConn)
 
 	middlewares.Install(router)
 	routes.Install(router)
