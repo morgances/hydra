@@ -13,7 +13,7 @@ var (
 	JWTMiddleware *jwt.GinJWTMiddleware
 
 	skipMap = map[string]bool{
-		"/user/login": true,
+		"/api/v1/user/login": true,
 	}
 )
 
@@ -34,6 +34,7 @@ func installJWTMiddleware(router *gin.Engine) {
 		glog.Infof("[JWT] Middleware, path %s", c.Request.URL.Path)
 		if _, skip := skipMap[c.Request.URL.Path]; skip {
 			c.Next()
+			return
 		}
 
 		JWTMiddleware.MiddlewareFunc()(c)

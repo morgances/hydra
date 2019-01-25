@@ -56,24 +56,14 @@ class Analysis extends Component {
   };
 
   handleRangePickerChange = rangePickerValue => {
-    const { dispatch } = this.props;
     this.setState({
       rangePickerValue,
-    });
-
-    dispatch({
-      type: 'chart/fetchSalesData',
     });
   };
 
   selectDate = type => {
-    const { dispatch } = this.props;
     this.setState({
       rangePickerValue: getTimeDistance(type),
-    });
-
-    dispatch({
-      type: 'chart/fetchSalesData',
     });
   };
 

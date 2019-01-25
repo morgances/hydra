@@ -1,8 +1,9 @@
 import fetch from 'dva/fetch';
 import { notification } from 'antd';
 import router from 'umi/router';
-import hash from 'hash.js';
-import { isAntdPro } from './utils';
+import { token } from './token';
+
+const baseURL = 'http://192.168.0.108:20000';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -37,25 +38,6 @@ const checkStatus = response => {
   throw error;
 };
 
-const cachedSave = (response, hashcode) => {
-  /**
-   * Clone a response data and store it in sessionStorage
-   * Does not support data other than json, Cache only json
-   */
-  const contentType = response.headers.get('Content-Type');
-  if (contentType && contentType.match(/application\/json/i)) {
-    // All data is saved as text
-    response
-      .clone()
-      .text()
-      .then(content => {
-        sessionStorage.setItem(hashcode, content);
-        sessionStorage.setItem(`${hashcode}:timestamp`, Date.now());
-      });
-  }
-  return response;
-};
-
 /**
  * Requests a URL, returning a promise.
  *
@@ -64,24 +46,20 @@ const cachedSave = (response, hashcode) => {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(url, option) {
-  const options = {
-    expirys: isAntdPro(),
-    ...option,
-  };
-  /**
-   * Produce fingerprints based on url and parameters
-   * Maybe url has the same parameters
-   */
-  const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
-  const hashcode = hash
-    .sha256()
-    .update(fingerprint)
-    .digest('hex');
-
   const defaultOptions = {
-    credentials: 'include',
+    credentials: 'same-origin',
+    mode: 'cors',
   };
-  const newOptions = { ...defaultOptions, ...options };
+
+  const newOptions = { ...defaultOptions, ...option };
+
+  const jwt = token();
+  if (jwt) {
+    newOptions.headers = {
+      Authorization: `Bear ${jwt}`,
+    }
+  }
+
   if (
     newOptions.method === 'POST' ||
     newOptions.method === 'PUT' ||
@@ -103,32 +81,9 @@ export default function request(url, option) {
     }
   }
 
-  const expirys = options.expirys && 60;
-  // options.expirys !== false, return the cache,
-  if (options.expirys !== false) {
-    const cached = sessionStorage.getItem(hashcode);
-    const whenCached = sessionStorage.getItem(`${hashcode}:timestamp`);
-    if (cached !== null && whenCached !== null) {
-      const age = (Date.now() - whenCached) / 1000;
-      if (age < expirys) {
-        const response = new Response(new Blob([cached]));
-        return response.json();
-      }
-      sessionStorage.removeItem(hashcode);
-      sessionStorage.removeItem(`${hashcode}:timestamp`);
-    }
-  }
-  return fetch(url, newOptions)
+  return fetch(baseURL + url, newOptions)
     .then(checkStatus)
-    .then(response => cachedSave(response, hashcode))
-    .then(response => {
-      // DELETE and 204 do not return data by default
-      // using .json will report an error.
-      if (newOptions.method === 'DELETE' || response.status === 204) {
-        return response.text();
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .catch(e => {
       const status = e.name;
       if (status === 401) {

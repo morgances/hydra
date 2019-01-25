@@ -10,7 +10,7 @@ import (
 func Install(router *gin.Engine) {
 	server := &controllers.Server{}
 
-	router.POST("/user/login", middlewares.JWTMiddleware.LoginHandler)
+	router.POST("/api/v1/user/login", middlewares.JWTMiddleware.LoginHandler)
 
-	router.POST("/insights/status", server.Status)
+	router.POST("/api/v1/insights/status", server.Status)
 }

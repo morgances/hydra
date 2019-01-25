@@ -7,7 +7,8 @@ import (
 
 func installCorsMiddleware(router *gin.Engine) {
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://*", "https://*"}
+	config.AllowOrigins = []string{"http://192.168.0.108:8000"}
+	config.AllowCredentials = true
 
 	router.Use(cors.New(config))
 }

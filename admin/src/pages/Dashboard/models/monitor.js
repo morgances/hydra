@@ -1,5 +1,3 @@
-import { queryTags } from '@/services/api';
-
 export default {
   namespace: 'monitor',
 
@@ -8,13 +6,6 @@ export default {
   },
 
   effects: {
-    *fetchTags(_, { call, put }) {
-      const response = yield call(queryTags);
-      yield put({
-        type: 'saveTags',
-        payload: response.list,
-      });
-    },
   },
 
   reducers: {
