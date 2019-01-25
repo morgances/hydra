@@ -1,5 +1,5 @@
-hash: 0270c0eb2ec0cec6c439dc5fb197c1bd0af371d6e5c1547e4e1b510e706e3139
-updated: 2019-01-23T15:40:45.993454+08:00
+hash: 35635bbc292b77c46a0a2eafeff32cfcb60a83049ba9e96aa92d5180e2a3bde1
+updated: 2019-01-25T18:55:40.940085+08:00
 imports:
 - name: github.com/appleboy/gin-jwt
   version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
@@ -8,13 +8,15 @@ imports:
 - name: github.com/gin-contrib/cors
   version: cf4846e6a636a76237a28d9286f163c132e841bc
 - name: github.com/gin-contrib/sse
-  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+  version: a7658810eb745c2f22927282dea478278103a897
 - name: github.com/gin-gonic/gin
   version: b869fe1415e4b9eb52f247441830d502aece2d4d
   subpackages:
   - binding
   - json
   - render
+- name: github.com/go-sql-driver/mysql
+  version: 72cd26f257d44c1114970e19afddcd812016007e
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/golang/protobuf
@@ -66,7 +68,7 @@ imports:
   subpackages:
   - codec
 - name: golang.org/x/sys
-  version: 054c452bb702e465e95ce8e7a3d9a6cf0cd1188d
+  version: b90733256f2e882e81d52f9126de08df5615afd9
   subpackages:
   - unix
 - name: golang.org/x/text
@@ -75,6 +77,10 @@ imports:
   - transform
   - unicode
   - unicode/norm
+- name: google.golang.org/appengine
+  version: e9657d882bb81064595ca3b56cbe2546bbabf7b1
+  subpackages:
+  - cloudsql
 - name: gopkg.in/dgrijalva/jwt-go.v3
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: gopkg.in/go-playground/validator.v8

@@ -20,5 +20,10 @@ import:
   subpackages:
   - transform
   - unicode
+- package: google.golang.org/appengine
+  subpackages:
+  - cloudsql
 - package: github.com/gin-contrib/cors
   version: v1.2
+- package: github.com/go-sql-driver/mysql
+  version: v1.4.1
