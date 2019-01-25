@@ -15,15 +15,15 @@ type (
 )
 
 const (
-	sqlUserCreateTable = iota
-	sqlUserInsert
-	sqlUserLogin
-	sqlUserModifyEmail
-	sqlUserModifyMobile
-	sqlUserGetPassword
-	sqlUserModifyPassword
-	sqlUserModifyActive
-	sqlUserGetIsActive
+	sqlAdminCreateTable = iota
+	sqlAdminInsert
+	sqlAdminLogin
+	sqlAdminModifyEmail
+	sqlAdminModifyMobile
+	sqlAdminGetPassword
+	sqlAdminModifyPassword
+	sqlAdminModifyActive
+	sqlAdminGetIsActive
 )
 
 var (
@@ -35,7 +35,7 @@ var (
 			name		VARCHAR(512) UNIQUE NOT NULL DEFAULT ' ',
 			pwd			VARCHAR(512) NOT NULL DEFAULT ' ',
 			real_name	VARCHAR(512) NOT NULL DEFAULT ' ',
-			mobile		VARCHAR(32) UNIQUE NOT NULL,
+			mobile		VARCHAR(32) UNIQUE DEFAULT NULL,
 			email		VARCHAR(128) UNIQUE DEFAULT NULL,
 			active		BOOLEAN DEFAULT TRUE,
 			created_at 	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -54,18 +54,18 @@ var (
 
 // Initialize -
 func (as *AdminServiceImpl) Initialize() error {
-	_, err := as.DB.Exec(adminSqls[sqlUserCreateTable])
+	_, err := as.DB.Exec(adminSqls[sqlAdminCreateTable])
 	return err
 }
 
-// reate -
-func (as *AdminServiceImpl) create(name, pwd, realName, mobile, email *string) error {
-	hash, err := salt.Generate(pwd)
+// Create -
+func (as *AdminServiceImpl) Create(name, pwd, realName, mobile, email string) error {
+	hash, err := salt.Generate(&pwd)
 	if err != nil {
 		return err
 	}
 
-	result, err := as.DB.Exec(adminSqls[sqlUserInsert], name, hash, realName, mobile, email, true)
+	result, err := as.DB.Exec(adminSqls[sqlAdminInsert], name, hash, realName, mobile, email, true)
 	if err != nil {
 		return err
 	}
@@ -83,7 +83,7 @@ func (as *AdminServiceImpl) Login(name, pwd *string) (uint32, error) {
 		password string
 	)
 
-	err := as.DB.QueryRow(adminSqls[sqlUserLogin], name).Scan(&id, &password)
+	err := as.DB.QueryRow(adminSqls[sqlAdminLogin], name).Scan(&id, &password)
 	if err != nil {
 		return 0, err
 	}
@@ -97,7 +97,7 @@ func (as *AdminServiceImpl) Login(name, pwd *string) (uint32, error) {
 
 // ModifyEmail -
 func (as *AdminServiceImpl) ModifyEmail(id uint32, email *string) error {
-	result, err := as.DB.Exec(adminSqls[sqlUserModifyEmail], email, id)
+	result, err := as.DB.Exec(adminSqls[sqlAdminModifyEmail], email, id)
 	if err != nil {
 		return err
 	}
@@ -110,7 +110,7 @@ func (as *AdminServiceImpl) ModifyEmail(id uint32, email *string) error {
 
 // ModifyMobile -
 func (as *AdminServiceImpl) ModifyMobile(id uint32, mobile *string) error {
-	result, err := as.DB.Exec(adminSqls[sqlUserModifyMobile], mobile, id)
+	result, err := as.DB.Exec(adminSqls[sqlAdminModifyMobile], mobile, id)
 	if err != nil {
 		return err
 	}
@@ -127,7 +127,7 @@ func (as *AdminServiceImpl) ModifyPassword(id uint32, pwd, newPwd *string) error
 	var (
 		password string
 	)
-	err := as.DB.QueryRow(adminSqls[sqlUserGetPassword], id).Scan(&password)
+	err := as.DB.QueryRow(adminSqls[sqlAdminGetPassword], id).Scan(&password)
 	if err != nil {
 		return err
 	}
@@ -141,13 +141,13 @@ func (as *AdminServiceImpl) ModifyPassword(id uint32, pwd, newPwd *string) error
 		return err
 	}
 
-	_, err = as.DB.Exec(adminSqls[sqlUserModifyPassword], hash, id)
+	_, err = as.DB.Exec(adminSqls[sqlAdminModifyPassword], hash, id)
 
 	return err
 }
 
 func (as *AdminServiceImpl) changeActive(id uint32, active bool) error {
-	result, err := as.DB.Exec(adminSqls[sqlUserModifyActive], active, id)
+	result, err := as.DB.Exec(adminSqls[sqlAdminModifyActive], active, id)
 	if err != nil {
 		return err
 	}

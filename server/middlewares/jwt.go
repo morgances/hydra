@@ -6,6 +6,8 @@ import (
 	"github.com/appleboy/gin-jwt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
+
+	"github.com/morgances/hydra/server/services"
 )
 
 var (
@@ -23,8 +25,24 @@ func init() {
 		Key:     []byte("hydra"),
 		Timeout: 24 * time.Hour,
 		Authenticator: func(c *gin.Context) (interface{}, error) {
-			glog.Info("[JWT] Authenticator triggered")
-			return "testing", nil
+			var req struct {
+				User string `json:"username"`
+				Pass string `json:"password"`
+			}
+
+			if err := c.BindJSON(&req); err != nil {
+				glog.Errorf("[status] parameter error:%s", err)
+
+				return nil, err
+			}
+
+			uid, err := services.AdminService.Login(&req.User, &req.Pass)
+			if err != nil {
+				glog.Errorf("[status] parameter error:%s", err)
+				return nil, err
+			}
+
+			return uid, nil
 		},
 	}
 }

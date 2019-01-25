@@ -21,5 +21,7 @@ func Load(db *sql.DB) error {
 		panic(err)
 	}
 
+	AdminService.Create("administrator", "111111", "", "", "")
+
 	return nil
 }
