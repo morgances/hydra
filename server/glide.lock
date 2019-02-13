@@ -1,5 +1,5 @@
-hash: 35635bbc292b77c46a0a2eafeff32cfcb60a83049ba9e96aa92d5180e2a3bde1
-updated: 2019-01-25T18:55:40.940085+08:00
+hash: 398fc4b38ca8628a2f2964786c222842981f4ea90b641414f739af3b77c04536
+updated: 2019-02-13T19:05:05.695521+08:00
 imports:
 - name: github.com/appleboy/gin-jwt
   version: 18c777042be3ecc5cb3bf79cd24cbd6b28683cdc
@@ -20,7 +20,7 @@ imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/golang/protobuf
-  version: 347cf4a86c1cb8d262994d8ef5924d4576c5b331
+  version: c823c79ea1570fb5ff454033735a8e68575d1d0f
   subpackages:
   - proto
 - name: github.com/hashicorp/hcl
@@ -51,8 +51,19 @@ imports:
   version: 27c6b39a135b7dc87a14afb068809132fb7a9a8f
 - name: github.com/qiniu/api.v7
   version: bc6998c1186aafa0eadc6396d28fc7e77a594a2a
+  subpackages:
+  - auth/qbox
+  - conf
+  - storage
+- name: github.com/qiniu/x
+  version: f512abcf45ab4e2ba0fd4784c57b53d495997d66
+  subpackages:
+  - bytes.v7
+  - bytes.v7/seekable
+  - reqid.v7
+  - xlog.v7
 - name: github.com/spf13/afero
-  version: a5d6946387efe7d64d09dcba68cdd523dc1273a3
+  version: f4711e4db9e9a1d3887343acb72b2bbfc2f686f5
   subpackages:
   - mem
 - name: github.com/spf13/cast
@@ -64,11 +75,16 @@ imports:
 - name: github.com/spf13/viper
   version: 6d33b5a963d922d182c91e8a1c88d81fd150cfd4
 - name: github.com/ugorji/go
-  version: 772ced7fd4c2f6322c07537a9a93b68d74551fa6
+  version: e444a5086c436778cf9281a7059a3d58b9e17935
   subpackages:
   - codec
+- name: golang.org/x/net
+  version: 3a22650c66bd7f4fb6d1e8072ffd7b75c8a27898
+  subpackages:
+  - contex
+  - context
 - name: golang.org/x/sys
-  version: b90733256f2e882e81d52f9126de08df5615afd9
+  version: 3b5209105503162ded1863c307ac66fec31120dd
   subpackages:
   - unix
 - name: golang.org/x/text
@@ -78,7 +94,7 @@ imports:
   - unicode
   - unicode/norm
 - name: google.golang.org/appengine
-  version: e9657d882bb81064595ca3b56cbe2546bbabf7b1
+  version: 99bc4335fe23898c0a61f5b35afabb6d11f29094
   subpackages:
   - cloudsql
 - name: gopkg.in/dgrijalva/jwt-go.v3
@@ -87,4 +103,10 @@ imports:
   version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
 - name: gopkg.in/yaml.v2
   version: 51d6538a90f86fe93ac480b35f37b2be17fef232
+- name: qiniupkg.com/x
+  version: f512abcf45ab4e2ba0fd4784c57b53d495997d66
+  subpackages:
+  - bytes.v7
+  - log.v7
+  - reqid.v7
 testImports: []

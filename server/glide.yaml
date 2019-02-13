@@ -2,6 +2,16 @@ package: github.com/morgances/hydra/server
 ignore:
 - github.com/fengyfei/go-box
 import:
+- package: golang.org/x/sys
+  subpackages:
+  - unix
+- package: golang.org/x/text
+  subpackages:
+  - transform
+  - unicode
+- package: golang.org/x/net
+  subpackages:
+  - contex
 - package: github.com/gin-gonic/gin
   version: v1.3.0
 - package: github.com/appleboy/gin-jwt
@@ -13,13 +23,6 @@ import:
 - package: github.com/spf13/viper
   version: v1.3.1
 - package: github.com/golang/glog
-- package: golang.org/x/sys
-  subpackages:
-  - unix
-- package: golang.org/x/text
-  subpackages:
-  - transform
-  - unicode
 - package: google.golang.org/appengine
   subpackages:
   - cloudsql
